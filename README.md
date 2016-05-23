@@ -1,2 +1,2 @@
 # EverydayAlarms
-A simple alarm manager for Android with some useful features
+A simple alarm app for Android with some useful features
