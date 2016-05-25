@@ -28,7 +28,7 @@
                 android:id="@+id/list_item_alarm_sw_alarm_state"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="14dp"
                 android:layout_toRightOf="@id/list_item_alarm_tv_alarm_time"/>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
