@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">EverydayAlarms</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Placeholders -->
+    <string name="placeholder.alarm_time">9:30</string>
 </resources>
