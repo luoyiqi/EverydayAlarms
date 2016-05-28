@@ -1,5 +1,7 @@
 package io.github.spaceisstrange.everydayalarms.activities;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,30 +23,29 @@ public class AlarmsActivity extends AppCompatActivity {
     /**
      * Views of the activity
      */
+    private AlarmsFragment mAlarmsFragment;
     private FloatingActionButton mFabAddAlarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarms);
+
+        // Setup the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // Switch to the AlarmFragment fragment
-        final AlarmsFragment alarmsFragment = AlarmsFragment.newInstance();
-        FragmentSwitcher.switchTo(alarmsFragment, getSupportFragmentManager());
+        mAlarmsFragment = AlarmsFragment.newInstance();
+        FragmentSwitcher.switchTo(mAlarmsFragment, getSupportFragmentManager());
 
         mFabAddAlarm = (FloatingActionButton) findViewById(R.id.fab);
         mFabAddAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Change this for a normal alarm
-                alarmsFragment.addAlarm(new Alarm(1234,
-                        "Hola",
-                        null,
-                        Calendar.getInstance(),
-                        true,
-                        true));
+                // Open the AddAlarmActivity and wait for it to return a created alarm
+                Intent addAlarmIntent = new Intent(view.getContext(), AddAlarmActivity.class);
+                startActivityForResult(addAlarmIntent, AddAlarmActivity.ADD_ALARM_REQUEST);
             }
         });
     }
@@ -69,5 +70,16 @@ public class AlarmsActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == AddAlarmActivity.ADD_ALARM_REQUEST) {
+            if (resultCode == Activity.RESULT_OK) {
+                // Get the created alarm from the intent and add it to the list
+                Alarm createdAlarm = (Alarm) data.getSerializableExtra(AddAlarmActivity.ALARM_NAME);
+                mAlarmsFragment.addAlarm(createdAlarm);
+            }
+        }
     }
 }

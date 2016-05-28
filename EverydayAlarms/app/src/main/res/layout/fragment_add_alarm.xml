@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".fragments.AddAlarmFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- Base layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Time card -->
+            <LinearLayout
+                style="@style/SettingsCard">
+
+                <TextView
+                    style="@style/SettingsCard_Title"
+                    android:text="@string/add_alarm.time_card.title"/>
+
+                <!-- Hour of the alarm -->
+                <LinearLayout
+                    android:id="@+id/fragment_add_alarm_btn_alarm_time"
+                    style="@style/SettingsCard_OptionButton">
+
+                    <ImageView
+                        style="@style/SettingsCard_OptionButton_Image"
+                        android:src="@drawable/ic_alarm_black"/>
+
+                    <TextView
+                        android:id="@+id/fragment_add_alarm_tv_alarm_time"
+                        style="@style/SettingsCard_OptionButton_Text"
+                        android:text="@string/placeholder.alarm_time"/>
+
+                </LinearLayout>
+
+                <!-- Repetition of the alarm -->
+                <LinearLayout
+                    android:id="@+id/fragment_add_alarm_btn_alarm_repetition"
+                    style="@style/SettingsCard_OptionButton">
+
+                    <ImageView
+                        style="@style/SettingsCard_OptionButton_Image"
+                        android:src="@drawable/ic_repeat_black"/>
+
+                    <TextView
+                        style="@style/SettingsCard_OptionButton_Text"
+                        android:text="@string/placeholder.alarm_repetition"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Sound and vibration card -->
+            <LinearLayout
+                style="@style/SettingsCard">
+
+                <TextView
+                    style="@style/SettingsCard_Title"
+                    android:text="@string/add_alarm.sound_vibration_card.title"/>
+
+                <!-- Sound of the alarm -->
+                <LinearLayout
+                    android:id="@+id/fragment_add_alarm_btn_alarm_music"
+                    style="@style/SettingsCard_OptionButton">
+
+                    <ImageView
+                        style="@style/SettingsCard_OptionButton_Image"
+                        android:src="@drawable/ic_album_black"/>
+
+                    <TextView
+                        android:id="@+id/fragment_add_alarm_tv_alarm_music"
+                        style="@style/SettingsCard_OptionButton_Text"
+                        android:text="@string/placeholder.alarm_sound"/>
+
+                </LinearLayout>
+
+                <!-- Vibation of the alarm -->
+                <LinearLayout
+                    android:id="@+id/fragment_add_alarm_btn_alarm_vibration"
+                    style="@style/SettingsCard_OptionButton">
+
+                    <ImageView
+                        style="@style/SettingsCard_OptionButton_Image"
+                        android:src="@drawable/ic_vibration_black"/>
+
+                    <TextView
+                        style="@style/SettingsCard_OptionButton_Text"
+                        android:text="@string/add_alarm.sound_vibration_card.vibration_no"/>
+
+                    <Switch
+                        android:id="@+id/fragment_add_alarm_sw_alarm_vibration"
+                        style="@style/SettingsCard_OptionButton_Switch"/>
+
+                </LinearLayout>
+
+                <!-- Volume of the alarm -->
+                <LinearLayout
+                    style="@style/SettingsCard_OptionButton">
+
+                    <ImageView
+                        style="@style/SettingsCard_OptionButton_Image"
+                        android:src="@drawable/ic_speaker_black"/>
+
+                    <SeekBar
+                        android:id="@+id/fragment_add_alarm_sb_alarm_volume"
+                        style="@style/SettingsCard_OptionButton_SeekBar"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

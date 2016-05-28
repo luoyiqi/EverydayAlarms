@@ -18,6 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.AddAlarmActivity"
+            android:label="@string/title_activity_add_alarm"
+            android:parentActivityName=".activities.AlarmsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.github.spaceisstrange.everydayalarms.activities.AlarmsActivity"/>
+        </activity>
     </application>
 
 </manifest>

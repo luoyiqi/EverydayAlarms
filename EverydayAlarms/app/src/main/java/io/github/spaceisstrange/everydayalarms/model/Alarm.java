@@ -18,19 +18,16 @@ package io.github.spaceisstrange.everydayalarms.model;
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import io.github.spaceisstrange.everydayalarms.model.enums.Day;
 
-public class Alarm {
+public class Alarm implements Serializable {
     /**
      * The id of the alarm
      */
     private int mId;
-    /**
-     * The name of the alarm
-     */
-    private String mName;
     /**
      * The day of the alarm
      */
@@ -47,14 +44,18 @@ public class Alarm {
      * Indicates whether the alarm will vibrate or not
      */
     private boolean mVibrationOn;
+    /**
+     * Indicates the volume of the alarm, between 0 and 100
+     */
+    private int mVolume;
 
-    public Alarm(int id, String name, Day day, Calendar time, boolean active, boolean vibrationOn) {
+    public Alarm(int id, Day day, Calendar time, boolean active, boolean vibrationOn, int volume) {
         mId = id;
-        mName = name;
         mDay = day;
         mTime = time;
         mActive = active;
         mVibrationOn = vibrationOn;
+        mVolume = volume;
     }
 
     /*
@@ -62,10 +63,6 @@ public class Alarm {
      */
     public void setId(int id) {
         mId = id;
-    }
-
-    public void setName(String name) {
-        mName = name;
     }
 
     public void setDay(Day day) {
@@ -84,15 +81,15 @@ public class Alarm {
         mVibrationOn = vibrationOn;
     }
 
+    public void setVolume(int volume) {
+        mVolume = volume;
+    }
+
     /*
     GETTERS
      */
     public int getId() {
         return mId;
-    }
-
-    public String getName() {
-        return mName;
     }
 
     public Day getDay() {
@@ -116,5 +113,9 @@ public class Alarm {
 
     public boolean isVibrationOn() {
         return mVibrationOn;
+    }
+
+    public int getVolume() {
+        return mVolume;
     }
 }

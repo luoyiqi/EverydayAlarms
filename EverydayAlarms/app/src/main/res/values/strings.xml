@@ -2,6 +2,17 @@
     <string name="app_name">EverydayAlarms</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Activities title -->
+    <string name="title_activity_add_alarm">Add alarm</string>
+
     <!-- Placeholders -->
     <string name="placeholder.alarm_time">9:30</string>
+    <string name="placeholder.alarm_repetition">Mondays/Tuesdays</string>
+    <string name="placeholder.alarm_sound">Morning Mood</string>
+
+    <!-- Add alarm activity -->
+    <string name="add_alarm.time_card.title">Time and repetition</string>
+    <string name="add_alarm.sound_vibration_card.title">Sound, vibration and volume</string>
+    <string name="add_alarm.sound_vibration_card.vibration_yes">Vibration on</string>
+    <string name="add_alarm.sound_vibration_card.vibration_no">Vibration off</string>
 </resources>
