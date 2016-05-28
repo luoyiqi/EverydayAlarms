@@ -47,7 +47,7 @@ public class ItemTouchHelperCallback extends ItemTouchHelper.SimpleCallback {
      * @return the default directions of swipes
      */
     public static int getDefaultSwipeDirs() {
-        return ItemTouchHelper.LEFT;
+        return ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
     }
 
     @Override
