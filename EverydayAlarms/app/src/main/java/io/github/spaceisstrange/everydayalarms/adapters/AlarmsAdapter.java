@@ -63,6 +63,16 @@ public class AlarmsAdapter extends RecyclerView.Adapter<AlarmHolder>
         notifyItemRemoved(position);
     }
 
+    /**
+     * Removes an alarm from the list given the alarm itself
+     *
+     * @param alarm to be removed from the list
+     */
+    public void removeAlarm(Alarm alarm) {
+        int position = mAlarms.indexOf(alarm);
+        removeAlarm(position);
+    }
+
     /*
     IMPLEMENTATIONS
      */
