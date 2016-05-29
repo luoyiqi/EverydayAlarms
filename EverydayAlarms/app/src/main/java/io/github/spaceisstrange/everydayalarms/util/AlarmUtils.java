@@ -64,4 +64,14 @@ public class AlarmUtils {
         long minutes = getMinutesFromMillis(alarmTime);
         return alarmTime / (1000) - (days * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60);
     }
+
+    /**
+     * Formats a given minutes so if it's less than 10 it'd be displayed as 09 instead of 9 (for example)
+     *
+     * @param minutes to format
+     * @return the formatted minutes
+     */
+    public static String formatMinutes(int minutes) {
+        return (minutes < 10) ? "0" + String.valueOf(minutes) : String.valueOf(minutes);
+    }
 }
