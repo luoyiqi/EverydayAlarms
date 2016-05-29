@@ -77,8 +77,25 @@ public class AlarmsActivity extends AppCompatActivity {
         if (requestCode == AddAlarmActivity.ADD_ALARM_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
                 // Get the created alarm from the intent and add it to the list
-                Alarm createdAlarm = (Alarm) data.getSerializableExtra(AddAlarmActivity.ALARM_NAME);
+                final Alarm createdAlarm = (Alarm) data.getSerializableExtra(AddAlarmActivity.ALARM_NAME);
                 mAlarmsFragment.addAlarm(createdAlarm);
+
+                // Show a snackbar with the info of the next alarm
+                Snackbar alarmSet = Snackbar.make(findViewById(R.id.activity_alarms_coordinator_layout),
+                        getString(R.string.alarms_alarm_set, createdAlarm.getHour(), createdAlarm.getMinute()),
+                        Snackbar.LENGTH_LONG);
+
+                // Set the undo action
+                alarmSet.setAction(R.string.alarms_undo_alarm, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Remove the created alarm from the adapter
+                        mAlarmsFragment.removeAlarm(createdAlarm);
+                    }
+                });
+
+                // And show the snackbar
+                alarmSet.show();
             }
         }
     }
