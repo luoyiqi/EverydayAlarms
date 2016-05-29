@@ -10,9 +10,14 @@
     <string name="placeholder.alarm_repetition">Mondays/Tuesdays</string>
     <string name="placeholder.alarm_sound">Morning Mood</string>
 
+    <!-- Alarm Activity -->
+    <string name="alarms.alarm_set">Alarm set for %1$s:%2$s</string>
+    <string name="alarms.undo_alarm">Undo</string>
+
     <!-- Add alarm activity -->
     <string name="add_alarm.time_card.title">Time and repetition</string>
     <string name="add_alarm.sound_vibration_card.title">Sound, vibration and volume</string>
     <string name="add_alarm.sound_vibration_card.vibration_yes">Vibration on</string>
     <string name="add_alarm.sound_vibration_card.vibration_no">Vibration off</string>
+    <string name="add_alarm.time_format">%1$s:%2$s</string>
 </resources>
