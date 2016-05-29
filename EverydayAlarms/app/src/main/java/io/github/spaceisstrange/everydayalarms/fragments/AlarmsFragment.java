@@ -1,7 +1,7 @@
 package io.github.spaceisstrange.everydayalarms.fragments;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -32,10 +32,25 @@ public class AlarmsFragment extends Fragment {
     }
 
     /*
-    SETTERS
+    METHODS
+     */
+
+    /**
+     * Adds an alarm to the adapter
+     *
+     * @param alarm to add
      */
     public void addAlarm(Alarm alarm) {
         mAlarmsAdapter.addAlarm(alarm);
+    }
+
+    /**
+     * Removes an alarm from the adapter
+     *
+     * @param alarm to remove
+     */
+    public void removeAlarm(Alarm alarm) {
+        mAlarmsAdapter.removeAlarm(alarm);
     }
 
     @Override
