@@ -22,6 +22,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 import io.github.spaceisstrange.everydayalarms.model.enums.Day;
+import io.github.spaceisstrange.everydayalarms.util.AlarmUtils;
 
 public class Alarm implements Serializable {
     /**
@@ -33,9 +34,13 @@ public class Alarm implements Serializable {
      */
     private Day mDay;
     /**
-     * The time of the alarm
+     * The hour of the alarm
      */
-    private Calendar mTime;
+    private int mHour;
+    /**
+     * The minute of the alarm
+     */
+    private int mMinute;
     /**
      * Indicates whether the alarm is active or not
      */
@@ -49,10 +54,11 @@ public class Alarm implements Serializable {
      */
     private int mVolume;
 
-    public Alarm(int id, Day day, Calendar time, boolean active, boolean vibrationOn, int volume) {
+    public Alarm(int id, Day day, int hour, int minute, boolean active, boolean vibrationOn, int volume) {
         mId = id;
         mDay = day;
-        mTime = time;
+        mHour = hour;
+        mMinute = minute;
         mActive = active;
         mVibrationOn = vibrationOn;
         mVolume = volume;
@@ -69,8 +75,12 @@ public class Alarm implements Serializable {
         mDay = day;
     }
 
-    public void setTime(Calendar time) {
-        mTime = time;
+    public void setHour(int hour) {
+        mHour = hour;
+    }
+
+    public void setMinute(int minute) {
+        mMinute = minute;
     }
 
     public void setActive(boolean active) {
@@ -97,14 +107,18 @@ public class Alarm implements Serializable {
     }
 
     public String getHourString() {
-        String time = String.valueOf(mTime.get(Calendar.HOUR_OF_DAY));
+        String time = String.valueOf(mHour);
         time += ":";
-        time += String.valueOf(mTime.get(Calendar.MINUTE));
+        time += AlarmUtils.formatMinutes(mMinute);
         return time;
     }
 
-    public Calendar getTime() {
-        return mTime;
+    public int getHour() {
+        return mHour;
+    }
+
+    public int getMinute() {
+        return mMinute;
     }
 
     public boolean isActive() {
