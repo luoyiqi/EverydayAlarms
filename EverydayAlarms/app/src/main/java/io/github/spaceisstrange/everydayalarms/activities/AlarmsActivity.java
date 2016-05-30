@@ -1,18 +1,16 @@
 package io.github.spaceisstrange.everydayalarms.activities;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import java.util.Calendar;
 
 import io.github.spaceisstrange.everydayalarms.R;
 import io.github.spaceisstrange.everydayalarms.fragments.AlarmsFragment;
@@ -40,12 +38,16 @@ public class AlarmsActivity extends AppCompatActivity {
         FragmentSwitcher.switchTo(mAlarmsFragment, getSupportFragmentManager());
 
         mFabAddAlarm = (FloatingActionButton) findViewById(R.id.fab);
+
+        // Set the fab onClickListener
         mFabAddAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Open the AddAlarmActivity and wait for it to return a created alarm
                 Intent addAlarmIntent = new Intent(view.getContext(), AddAlarmActivity.class);
-                startActivityForResult(addAlarmIntent, AddAlarmActivity.ADD_ALARM_REQUEST);
+                startActivityForResult(addAlarmIntent,
+                        AddAlarmActivity.ADD_ALARM_REQUEST,
+                        ActivityOptions.makeSceneTransitionAnimation(AlarmsActivity.this).toBundle());
             }
         });
     }
