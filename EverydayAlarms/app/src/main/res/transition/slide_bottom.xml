@@ -5,6 +5,7 @@
     <slide android:interpolator="@android:interpolator/decelerate_cubic"
            android:slideEdge="bottom">
         <targets>
+            <target android:excludeId="@id/app_bar_layout"/>
             <target android:excludeId="@android:id/navigationBarBackground"/>
             <target android:excludeId="@android:id/statusBarBackground"/>
         </targets>
