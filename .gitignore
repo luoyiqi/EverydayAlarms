@@ -19,8 +19,8 @@ local.properties
 # intellij & maven
 .classpath
 .project
-.settings/
-.idea/
+.settings
+.idea
 *.iml
 *.iws
 .DS_Store
